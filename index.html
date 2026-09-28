@@ -1,0 +1,1923 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Plataforma de estudio de Derecho Procesal Administrativo y Fiscal con 120 reactivos.">
+  <title>Derecho Procesal Administrativo/Fiscal — Banco de estudio</title>
+  <style>
+:root{
+  --bg:#f3f4f6;--panel:#ffffff;--text:#111827;--muted:#6b7280;--line:#d1d5db;
+  --accent:#111827;--accentText:#ffffff;--soft:#f9fafb;--ok:#166534;--okbg:#dcfce7;
+  --bad:#991b1b;--badbg:#fee2e2;--shadow:0 10px 30px rgba(0,0,0,.07)
+}
+html[data-theme="dark"]{
+  --bg:#0b1020;--panel:#111827;--text:#f3f4f6;--muted:#9ca3af;--line:#374151;
+  --accent:#f9fafb;--accentText:#111827;--soft:#0f172a;--ok:#86efac;--okbg:#16351f;
+  --bad:#fca5a5;--badbg:#3b1616;--shadow:0 12px 32px rgba(0,0,0,.28)
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,select{font:inherit}.topbar{max-width:1150px;margin:auto;padding:32px 24px 12px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+h1{font-size:clamp(1.7rem,4vw,2.5rem);margin:.2rem 0 0;line-height:1.05}h2{line-height:1.25}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;color:var(--muted);font-weight:800}
+.wrap{max-width:1150px;margin:0 auto;padding:18px 24px 40px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}.hidden{display:none!important}
+.hero,.result-hero{display:flex;justify-content:space-between;gap:24px;align-items:center}.hero p,.result-hero p{color:var(--muted);max-width:720px}.statcard{min-width:190px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--soft)}
+.statcard span,.statcard small{display:block;color:var(--muted)}.statcard strong{display:block;font-size:2rem;margin:4px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}.field label{display:block;font-weight:800;margin-bottom:8px}
+select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text)}.block-head{display:flex;align-items:center;justify-content:space-between;margin-top:6px}.blocks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:10px 0 18px}
+.block-option{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.block-option input{margin-top:3px}.checkline{display:flex;gap:10px;align-items:center;padding:8px 0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+button{border:0;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:var(--accentText)}.secondary,.ghost{background:var(--soft);color:var(--text);border:1px solid var(--line)}.ghost{padding:10px 13px}.linkbtn{background:transparent;color:var(--text);padding:6px 8px;text-decoration:underline}button:disabled{opacity:.45;cursor:not-allowed}.msg{color:var(--bad);font-weight:700}
+.quizbar{display:flex;justify-content:space-between;align-items:center;gap:14px}.badges{display:flex;gap:8px;flex-wrap:wrap}.quiz-meta{display:flex;gap:16px;color:var(--muted);font-weight:800}.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--accent);color:var(--accentText);font-size:.8rem;font-weight:800}.badge.subtle{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.progress{height:8px;background:var(--soft);border-radius:999px;overflow:hidden;margin:16px 0 26px}#progressFill{height:100%;width:0;background:var(--accent);transition:width .2s}.question-card{max-width:900px;margin:auto}.qnumber{color:var(--muted);font-size:.85rem;font-weight:800;margin-bottom:8px}#questionText{font-size:clamp(1.2rem,2.6vw,1.65rem)}
+.options{display:grid;gap:12px;margin-top:22px}.option{display:grid;grid-template-columns:42px 1fr;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);color:var(--text);border:1px solid var(--line);padding:14px;border-radius:14px;font-weight:600}.option:hover{background:var(--soft)}.option .letter{height:34px;width:34px;border-radius:9px;display:grid;place-items:center;border:1px solid var(--line);font-weight:900}.option.selected{outline:2px solid var(--text)}.option.correct{background:var(--okbg);border-color:var(--ok)}.option.wrong{background:var(--badbg);border-color:var(--bad)}
+.feedback{margin-top:18px;padding:14px;border-radius:12px;font-weight:700}.feedback.ok{background:var(--okbg);color:var(--ok)}.feedback.bad{background:var(--badbg);color:var(--bad)}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:28px}.kbd{text-align:center;color:var(--muted);font-size:.82rem}
+.score-ring{height:145px;width:145px;border-radius:50%;border:10px solid var(--line);display:grid;place-items:center;align-content:center;flex:0 0 auto}.score-ring strong{font-size:2rem}.score-ring span{color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}.result-grid>div{padding:16px;background:var(--soft);border:1px solid var(--line);border-radius:14px}.result-grid span{display:block;color:var(--muted);font-size:.85rem}.result-grid strong{display:block;font-size:1.5rem;margin-top:4px}
+.block-results{display:grid;gap:10px}.block-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.review{margin-top:26px;display:grid;gap:14px}.review-item{padding:16px;border:1px solid var(--line);border-radius:14px}.review-item h4{margin:0 0 10px}.review-item p{margin:6px 0}.good{color:var(--ok)}.badtext{color:var(--bad)}.muted{color:var(--muted)}footer{text-align:center;color:var(--muted);padding:0 24px 34px;font-size:.84rem}
+@media(max-width:760px){.grid2,.blocks,.result-grid{grid-template-columns:1fr}.hero,.result-hero{align-items:flex-start;flex-direction:column}.statcard{width:100%}.quizbar{align-items:flex-start;flex-direction:column}.nav{display:grid;grid-template-columns:1fr 1fr}#nextBtn{grid-column:1/-1}}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Banco de estudio · 120 reactivos</div>
+      <h1>Derecho Procesal Administrativo y Fiscal</h1>
+    </div>
+    <button id="themeBtn" class="ghost" type="button" aria-label="Cambiar tema">◐</button>
+  </header>
+
+  <main class="wrap">
+    <section id="setupView" class="panel">
+      <div class="hero">
+        <div>
+          <h2>Configura tu sesión</h2>
+          <p>La plataforma funciona completamente en el navegador. No requiere backend y conserva tus resultados únicamente en el dispositivo mediante almacenamiento local.</p>
+        </div>
+        <div class="statcard">
+          <span>Mejor resultado</span>
+          <strong id="bestScore">—</strong>
+          <small id="attemptCount">0 intentos guardados</small>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="mode">Modo</label>
+          <select id="mode">
+            <option value="study">Estudio — retroalimentación inmediata</option>
+            <option value="exam">Examen — resultado al final</option>
+            <option value="mistakes">Repasar incorrectas guardadas</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="questionCount">Número de preguntas</label>
+          <select id="questionCount">
+            <option value="20">20 preguntas</option>
+            <option value="40">40 preguntas</option>
+            <option value="60">60 preguntas</option>
+            <option value="120">120 preguntas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="block-head">
+        <h3>Bloques temáticos</h3>
+        <div class="inline-actions">
+          <button id="selectAll" class="linkbtn" type="button">Todos</button>
+          <button id="clearAll" class="linkbtn" type="button">Ninguno</button>
+        </div>
+      </div>
+      <div id="blockList" class="blocks"></div>
+
+      <label class="checkline">
+        <input id="shuffleOptions" type="checkbox" checked>
+        <span>Barajar también los incisos A–D en cada intento</span>
+      </label>
+
+      <div class="actions">
+        <button id="startBtn" class="primary" type="button">Comenzar sesión</button>
+        <button id="resetStatsBtn" class="secondary" type="button">Borrar estadísticas</button>
+      </div>
+      <p id="setupMsg" class="msg" aria-live="polite"></p>
+    </section>
+
+    <section id="quizView" class="panel hidden">
+      <div class="quizbar">
+        <div class="badges">
+          <span id="modeBadge" class="badge">Estudio</span>
+          <span id="blockBadge" class="badge subtle"></span>
+        </div>
+        <div class="quiz-meta">
+          <span id="progressText">1/20</span>
+          <span id="timer">00:00</span>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+
+      <article class="question-card">
+        <div class="qnumber" id="questionNumber">Pregunta 1</div>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+      </article>
+
+      <div class="nav">
+        <button id="prevBtn" class="secondary" type="button">Anterior</button>
+        <button id="flagBtn" class="secondary" type="button">☆ Marcar</button>
+        <button id="nextBtn" class="primary" type="button">Siguiente</button>
+      </div>
+      <p class="kbd">Atajos: 1–4 para responder · ←/→ para navegar · F para marcar</p>
+    </section>
+
+    <section id="resultView" class="panel hidden">
+      <div class="result-hero">
+        <div>
+          <div class="eyebrow">Resultado</div>
+          <h2 id="resultTitle">Sesión terminada</h2>
+          <p id="resultSub"></p>
+        </div>
+        <div class="score-ring" aria-label="Calificación obtenida">
+          <strong id="scorePct">0%</strong>
+          <span id="scoreRaw">0/0</span>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div><span>Correctas</span><strong id="correctCount">0</strong></div>
+        <div><span>Incorrectas</span><strong id="wrongCount">0</strong></div>
+        <div><span>Sin responder</span><strong id="blankCount">0</strong></div>
+        <div><span>Tiempo</span><strong id="timeSpent">00:00</strong></div>
+      </div>
+
+      <h3>Desempeño por bloque</h3>
+      <div id="blockResults" class="block-results"></div>
+
+      <div class="actions">
+        <button id="retryWrongBtn" class="primary" type="button">Repetir incorrectas</button>
+        <button id="newSessionBtn" class="secondary" type="button">Nueva sesión</button>
+        <button id="reviewBtn" class="secondary" type="button">Revisar respuestas</button>
+      </div>
+
+      <div id="reviewArea" class="review hidden"></div>
+    </section>
+  </main>
+
+  <footer>Aplicación estática · datos locales · sin backend</footer>
+
+  <script>
+window.QUESTION_BANK = [
+  {
+    "id": 1,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Qué se entiende por acto administrativo?",
+    "options": [
+      "Disposición administrativa general destinada a producir efectos abstractos e impersonales",
+      "Manifestación bilateral administrativa destinada a producir obligaciones recíprocas entre las partes",
+      "Declaración unilateral de autoridad administrativa destinada a producir efectos jurídicos concretos",
+      "Actuación administrativa interna destinada exclusivamente a organizar una dependencia"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 2,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Cuál de las siguientes características permite identificar un acto administrativo susceptible de impugnación?",
+    "options": [
+      "Que constituya un acto preparatorio sin efectos jurídicos definitivos",
+      "Que constituya un acto de trámite destinado únicamente a impulsar el procedimiento",
+      "Que constituya un acto de ejecución limitado a materializar una decisión anterior",
+      "Que constituya un acto nuevo susceptible de producir una afectación jurídica"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 3,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Qué requisito formal debe reunir el acto administrativo para efectos de su impugnación?",
+    "options": [
+      "Haber sido consentido provisionalmente por la persona destinataria",
+      "Haber comenzado materialmente su ejecución por la autoridad competente",
+      "Constar por escrito como manifestación formal de la decisión administrativa",
+      "Haber agotado previamente todos los medios jurisdiccionales de defensa"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 4,
+    "block": "I. Acto administrativo impugnable",
+    "q": "El carácter definitivo de un acto administrativo se refiere principalmente a que:",
+    "options": [
+      "Impide que la autoridad pueda posteriormente modificarlo mediante cualquier procedimiento",
+      "Decide una cuestión administrativa produciendo efectos jurídicos susceptibles de impugnación",
+      "Agota necesariamente todos los medios jurisdiccionales previstos por el ordenamiento",
+      "Produce necesariamente cosa juzgada administrativa frente a todas las autoridades"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 5,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Cómo debe manifestarse el agravio o perjuicio derivado de un acto administrativo impugnable?",
+    "options": [
+      "De forma general y abstracta respecto de una colectividad indeterminada",
+      "De forma personal y concreta respecto de la esfera jurídica de la persona afectada",
+      "De forma eventual y futura respecto de una actuación administrativa inexistente",
+      "De forma colectiva e indeterminada respecto del interés general administrativo"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 6,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿De quién debe provenir un acto administrativo para que pueda ser analizado como acto de autoridad administrativa?",
+    "options": [
+      "De una autoridad que actúe en ejercicio de atribuciones administrativas",
+      "De un órgano jurisdiccional que resuelva una controversia administrativa",
+      "De un órgano legislativo que expida una disposición normativa general",
+      "De un particular que intervenga en una relación regulada por el Derecho Administrativo"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 7,
+    "block": "I. Acto administrativo impugnable",
+    "q": "Al analizar jurídicamente un acto administrativo, uno de los primeros aspectos que debe verificarse es:",
+    "options": [
+      "Su legalidad conforme a las normas que regulan la actuación de la autoridad",
+      "Su oportunidad conforme a la conveniencia administrativa de la determinación",
+      "Su eficacia conforme a los resultados materiales producidos por su ejecución",
+      "Su ejecutoriedad conforme a las medidas disponibles para lograr su cumplimiento"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 8,
+    "block": "I. Acto administrativo impugnable",
+    "q": "La nulidad de un acto administrativo se relaciona principalmente con:",
+    "options": [
+      "Una irregularidad secundaria que no alcanza a afectar jurídicamente su validez",
+      "Un vicio jurídico que afecta alguno de los elementos necesarios para su validez",
+      "Una circunstancia posterior que afecta únicamente la eficacia temporal del acto",
+      "Una deficiencia susceptible de subsanación sin consecuencias sobre su validez"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 9,
+    "block": "I. Acto administrativo impugnable",
+    "q": "La anulabilidad del acto administrativo se distingue de la nulidad porque:",
+    "options": [
+      "Supone necesariamente la inexistencia jurídica absoluta del acto administrativo",
+      "Constituye una forma de sobreseimiento dentro del procedimiento administrativo",
+      "Presupone un vicio cuyos efectos dependen del régimen jurídico aplicable al acto",
+      "Se refiere exclusivamente a los defectos de competencia de la autoridad emisora"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 10,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Cuál de las siguientes NO constituye una característica propia del acto administrativo impugnable?",
+    "options": [
+      "Causar un agravio o perjuicio personal y concreto",
+      "Constar por escrito como manifestación de autoridad",
+      "Poseer carácter definitivo respecto de su destinatario",
+      "Haber agotado previamente la totalidad de las vías jurisdiccionales"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 11,
+    "block": "I. Acto administrativo impugnable",
+    "q": "Analizar las características del acto administrativo impugnable permite principalmente:",
+    "options": [
+      "Determinar si existen condiciones suficientes para ejecutar coactivamente el acto",
+      "Determinar si concurren las condiciones jurídicas necesarias para combatir el acto",
+      "Determinar si existen condiciones suficientes para convalidar administrativamente el acto",
+      "Determinar si concurren las condiciones necesarias para revocarlo oficiosamente"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 12,
+    "block": "I. Acto administrativo impugnable",
+    "q": "Si el acto no causa agravio o perjuicio personal y concreto al promovente, el problema se relaciona principalmente con:",
+    "options": [
+      "La competencia territorial correspondiente a la autoridad administrativa emisora",
+      "La ejecutividad de la determinación adoptada dentro del procedimiento administrativo",
+      "La fundamentación empleada para justificar las atribuciones de la autoridad competente",
+      "La existencia de la afectación necesaria para sustentar jurídicamente su impugnación"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 13,
+    "block": "I. Acto administrativo impugnable",
+    "q": "La impugnación de un acto administrativo constituye esencialmente:",
+    "options": [
+      "Un mecanismo de defensa mediante el cual se controvierte jurídicamente la actuación administrativa",
+      "Un mecanismo de ejecución mediante el cual se hace efectivo el acto administrativo",
+      "Un mecanismo de convalidación mediante el cual se subsanan determinados defectos del acto",
+      "Un mecanismo de revisión oficiosa mediante el cual la autoridad examina su propia actuación"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 14,
+    "block": "I. Acto administrativo impugnable",
+    "q": "El análisis de legalidad de un acto administrativo busca determinar:",
+    "options": [
+      "Si la resolución cumple los criterios administrativos de oportunidad para su ejecución",
+      "Si la resolución posee los requisitos necesarios para adquirir definitividad jurisdiccional",
+      "Si la resolución satisface los presupuestos propios del control de convencionalidad",
+      "Si la resolución cumple las disposiciones jurídicas aplicables a su emisión"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 15,
+    "block": "I. Acto administrativo impugnable",
+    "q": "¿Cuál es la relación entre el acto administrativo y el derecho procesal administrativo?",
+    "options": [
+      "El derecho procesal administrativo regula únicamente la formación interna del acto",
+      "El acto administrativo constituye necesariamente una resolución de naturaleza jurisdiccional",
+      "El acto administrativo puede constituir objeto de control mediante los medios de defensa",
+      "El derecho procesal administrativo sustituye las normas sustantivas de la Administración"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 16,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Un recurso administrativo es, en términos generales:",
+    "options": [
+      "Un procedimiento oficioso mediante el cual la Administración revisa cualquier actuación propia",
+      "Un mecanismo constitucional mediante el cual se controla directamente una actuación administrativa",
+      "Un medio jurisdiccional mediante el cual se solicita revisar una sentencia administrativa",
+      "Un medio de defensa mediante el cual se solicita revisar un acto administrativo"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 17,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "El recurso administrativo se desarrolla inicialmente dentro de:",
+    "options": [
+      "La función jurisdiccional ejercida por tribunales administrativos especializados",
+      "La jurisdicción constitucional destinada al control directo de los actos de autoridad",
+      "La función administrativa conforme a las reglas establecidas por el ordenamiento",
+      "La función legislativa mediante procedimientos de revisión de actos administrativos"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 18,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "El objeto fundamental de un recurso administrativo consiste en:",
+    "options": [
+      "Obtener la suspensión definitiva de cualquier procedimiento administrativo iniciado",
+      "Obtener la revisión jurídica de un acto o resolución administrativa impugnada",
+      "Obtener una declaración jurisdiccional de responsabilidad contra la autoridad emisora",
+      "Obtener el control constitucional directo de una resolución administrativa definitiva"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 19,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Una de las justificaciones de los recursos administrativos consiste en:",
+    "options": [
+      "Permitir que la Administración revise jurídicamente determinados actos administrativos",
+      "Permitir que el particular modifique directamente los efectos de la resolución impugnada",
+      "Permitir que el órgano legislativo revise las resoluciones administrativas definitivas",
+      "Permitir que los tribunales sustituyan las facultades propias de la Administración"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 20,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "¿Qué conjunto pertenece propiamente a la teoría general de los recursos administrativos?",
+    "options": [
+      "Concepto, antecedentes, naturaleza, objeto, justificación, elementos y clasificación",
+      "Procedencia, interposición, efectos, improcedencia, sobreseimiento y resolución",
+      "Demanda, contestación, ampliación, pruebas, alegatos y cierre de instrucción",
+      "Competencia, estructura, funcionamiento, atracción y organización jurisdiccional"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 21,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Estudiar la naturaleza jurídica del recurso administrativo permite determinar principalmente:",
+    "options": [
+      "Si constituye un medio desarrollado dentro del ejercicio de la función jurisdiccional",
+      "Si constituye un medio desarrollado dentro de la jurisdicción constitucional federal",
+      "Si constituye un medio de defensa desarrollado dentro de la función administrativa",
+      "Si constituye un mecanismo desarrollado mediante el ejercicio de una función legislativa"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 22,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "La clasificación de los recursos administrativos tiene como finalidad:",
+    "options": [
+      "Diferenciarlos conforme a sus características, efectos y regulación jurídica",
+      "Diferenciarlos conforme a las clases de sentencia que pueden emitirse en el proceso",
+      "Diferenciarlos conforme a las medidas cautelares disponibles durante el juicio",
+      "Diferenciarlos conforme a la jerarquía de los órganos jurisdiccionales administrativos"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 23,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Los elementos esenciales de un recurso administrativo son aquellos que:",
+    "options": [
+      "Determinan las consecuencias jurídicas derivadas de su presentación formal",
+      "Resultan indispensables para configurar jurídicamente el medio de defensa administrativo",
+      "Establecen las distintas causas que pueden impedir el estudio del recurso presentado",
+      "Regulan las formas mediante las cuales puede concluir el procedimiento administrativo"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 24,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Una ventaja del recurso administrativo consiste en:",
+    "options": [
+      "Permitir la revisión del acto dentro de la propia esfera administrativa antes de otra vía",
+      "Permitir la nulidad inmediata del acto sin necesidad de analizar los agravios formulados",
+      "Permitir la sustitución directa del acto por la pretensión planteada por el particular",
+      "Permitir la suspensión automática de cualquier acto por la presentación del recurso"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 25,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "Una posible desventaja del recurso administrativo consiste en:",
+    "options": [
+      "Que necesariamente sea resuelto por un órgano jurisdiccional distinto de la Administración",
+      "Que su interposición produzca la nulidad provisional del acto administrativo combatido",
+      "Que su tramitación impida posteriormente acceder a cualquier mecanismo jurisdiccional",
+      "Que la revisión se desarrolle inicialmente dentro de la misma esfera administrativa"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 26,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "La interposición de un recurso administrativo consiste en:",
+    "options": [
+      "Resolver formalmente el medio de defensa conforme a los agravios presentados",
+      "Presentar formalmente el medio de defensa conforme a los requisitos establecidos",
+      "Suspender formalmente el acto sin necesidad de una determinación administrativa",
+      "Ejecutar formalmente la resolución una vez agotada la instancia correspondiente"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 27,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "La procedencia de un recurso administrativo permite determinar:",
+    "options": [
+      "Si la autoridad cuenta con facultades suficientes para ejecutar la resolución combatida",
+      "Si el acto administrativo reúne los elementos materiales necesarios para su existencia",
+      "Si el medio de defensa puede legalmente promoverse contra el acto correspondiente",
+      "Si un tribunal puede ejercer facultades de atracción respecto de la controversia planteada"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 28,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "La improcedencia de un recurso administrativo implica:",
+    "options": [
+      "La existencia de un vicio que obliga a resolver favorablemente el medio de defensa",
+      "La existencia de una medida provisional que suspende temporalmente su substanciación",
+      "La existencia de una irregularidad que necesariamente produce nulidad del acto recurrido",
+      "La existencia de un impedimento jurídico para analizar el recurso en los términos previstos"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 29,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "El sobreseimiento se distingue de la improcedencia porque el primero constituye:",
+    "options": [
+      "Una causa que impide jurídicamente presentar cualquier medio de defensa administrativo",
+      "Una determinación que concluye el procedimiento sin resolver el fondo en ciertos supuestos",
+      "Una resolución mediante la cual necesariamente se declara la nulidad del acto impugnado",
+      "Una medida provisional mediante la cual se suspende la tramitación del recurso promovido"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 30,
+    "block": "II. Teoría general de los recursos administrativos",
+    "q": "La resolución de un recurso administrativo constituye:",
+    "options": [
+      "La actuación mediante la cual el particular formula los agravios correspondientes",
+      "La determinación inicial mediante la cual únicamente se analiza su procedencia",
+      "La resolución jurisdiccional mediante la cual termina un juicio contencioso administrativo",
+      "La determinación mediante la cual la autoridad decide el medio de defensa promovido"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 31,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "¿En qué ordenamiento federal se encuentra regulado el recurso administrativo de revisión?",
+    "options": [
+      "Ley Federal de Procedimiento Administrativo",
+      "Ley Federal de Procedimiento Contencioso Administrativo",
+      "Código Fiscal de la Federación",
+      "Código de Procedimientos Administrativos del Estado de Veracruz"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 32,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "El recurso de revisión previsto en la LFPA pertenece al ámbito:",
+    "options": [
+      "Jurisdiccional federal de carácter contencioso administrativo",
+      "Administrativo federal de carácter impugnativo",
+      "Administrativo local de carácter impugnativo",
+      "Constitucional federal de carácter jurisdiccional"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 33,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "La procedencia del recurso de revisión permite determinar:",
+    "options": [
+      "Las normas generales susceptibles de ser controvertidas mediante ese procedimiento",
+      "Las resoluciones administrativas susceptibles de ser combatidas mediante ese recurso",
+      "Las sentencias jurisdiccionales susceptibles de ser combatidas mediante ese medio",
+      "Las resoluciones locales susceptibles de revisión ordinaria por la autoridad federal"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 34,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "La opcionalidad del recurso de revisión se relaciona con:",
+    "options": [
+      "La posibilidad de elegir libremente a la autoridad administrativa encargada de resolverlo",
+      "La posibilidad de omitir los requisitos formales de procedencia previstos legalmente",
+      "La posibilidad de elegir entre las vías de defensa permitidas por el ordenamiento aplicable",
+      "La posibilidad de suspender unilateralmente la ejecución de la resolución administrativa"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 35,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "La interposición del recurso de revisión genera:",
+    "options": [
+      "La nulidad automática de la resolución administrativa que constituye su objeto",
+      "La suspensión automática e incondicionada del acto administrativo impugnado",
+      "La pérdida inmediata de competencia de la autoridad que emitió la resolución",
+      "Las consecuencias jurídicas previstas por la legislación administrativa aplicable"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 36,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "Los efectos de la interposición del recurso de revisión deben distinguirse de:",
+    "options": [
+      "Los presupuestos propios del juicio de amparo directo en materia administrativa",
+      "Los elementos materiales de la responsabilidad de los servidores públicos involucrados",
+      "Los requisitos jurídicos necesarios para su procedencia y substanciación",
+      "Los requisitos constitucionales necesarios para la validez de una disposición general"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 37,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "En el recurso de revisión, la improcedencia se refiere a:",
+    "options": [
+      "Las causas que impiden jurídicamente la tramitación o estudio del medio de defensa",
+      "Las causas que determinan la incompetencia territorial de un tribunal administrativo",
+      "Las causas que permiten suspender automáticamente los efectos del acto administrativo",
+      "Las causas que obligan a la autoridad a declarar la nulidad del acto controvertido"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 38,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "El sobreseimiento del recurso de revisión supone:",
+    "options": [
+      "La confirmación necesariamente expresa del acto administrativo originalmente impugnado",
+      "La nulidad absoluta del acto administrativo por vicios en sus elementos esenciales",
+      "La remisión obligatoria del asunto al Tribunal Federal de Justicia Administrativa",
+      "La terminación del procedimiento sin pronunciamiento de fondo en los casos previstos"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 39,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "Una vez resuelto el recurso administrativo de revisión, ¿qué significa jurídicamente impugnar esa resolución?",
+    "options": [
+      "Combatir posteriormente la determinación mediante el medio de defensa jurídicamente procedente",
+      "Solicitar nuevamente a la misma autoridad que resuelva idénticamente el recurso presentado",
+      "Reabrir automáticamente el procedimiento administrativo que ya fue concluido",
+      "Dejar unilateralmente sin efectos la resolución mediante una nueva promoción administrativa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 40,
+    "block": "III. Recurso de revisión previsto en la LFPA",
+    "q": "¿Cuál de los siguientes conjuntos corresponde específicamente al recurso de revisión previsto en la LFPA?",
+    "options": [
+      "Procedencia, suspensión, incidentes, instrucción, sentencia, aclaración y ejecución",
+      "Procedencia, demanda, contestación, ampliación, pruebas, alegatos y sentencia",
+      "Procedencia, opcionalidad, interposición, efectos, improcedencia, sobreseimiento y resolución",
+      "Procedencia, competencia, estructura, funcionamiento, atracción y organización jurisdiccional"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 41,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "¿Qué recurso administrativo prevé el Código de Procedimientos Administrativos del Estado de Veracruz para controvertir determinados actos administrativos?",
+    "options": [
+      "Recurso de inconformidad",
+      "Recurso de revisión",
+      "Recurso de revocación",
+      "Recurso de reclamación"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 42,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "¿En qué ordenamiento se encuentra regulado el recurso de revocación en materia administrativa local veracruzana?",
+    "options": [
+      "Ley Federal de Procedimiento Administrativo",
+      "Ley Federal de Procedimiento Contencioso Administrativo",
+      "Código Fiscal de la Federación",
+      "Código de Procedimientos Administrativos del Estado de Veracruz"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 43,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "¿Cuál es la naturaleza y ámbito jurídico del recurso de revocación regulado por la legislación administrativa veracruzana?",
+    "options": [
+      "Es un medio de impugnación perteneciente al ámbito administrativo estatal",
+      "Es un medio de impugnación perteneciente al ámbito administrativo federal",
+      "Es un medio jurisdiccional perteneciente al control constitucional estatal",
+      "Es un medio jurisdiccional destinado a revisar resoluciones administrativas federales"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 44,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "La procedencia del recurso de revocación permite establecer:",
+    "options": [
+      "Los actos administrativos locales contra los cuales puede jurídicamente promoverse",
+      "Las normas estatales susceptibles de ser combatidas mediante un recurso ordinario",
+      "Las resoluciones judiciales locales susceptibles de ser combatidas mediante amparo",
+      "Los actos federales susceptibles de ser revisados por una autoridad administrativa local"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 45,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "La interposición del recurso de revocación representa:",
+    "options": [
+      "La apertura oficiosa de un procedimiento destinado a revisar la legalidad del acto",
+      "El ejercicio directo de un mecanismo de control constitucional contra la autoridad",
+      "El ejercicio formal del medio de defensa administrativo conforme al régimen local",
+      "La presentación de una demanda jurisdiccional ante un tribunal administrativo local"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 46,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "¿Cuál de los siguientes conjuntos corresponde a aspectos propios de la tramitación jurídica del recurso de revocación?",
+    "options": [
+      "Atracción, reclamación, aclaración, ejecución y jurisprudencia",
+      "Demanda, contestación, ampliación, pruebas, alegatos y sentencia",
+      "Procedencia, interposición, improcedencia, sobreseimiento y resolución",
+      "Acción, excepción, reconvención, audiencia, conclusiones y ejecución"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 47,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "El sobreseimiento del recurso de revocación implica jurídicamente:",
+    "options": [
+      "La conclusión del procedimiento sin una decisión de fondo cuando proceda legalmente",
+      "La confirmación del acto administrativo por ausencia de argumentos suficientes",
+      "La suspensión provisional del procedimiento hasta desaparecer el impedimento procesal",
+      "La declaración de nulidad del acto por incompetencia de la autoridad que lo emitió"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 48,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "La diferencia inicial entre el recurso de revisión federal y el recurso de revocación veracruzano se encuentra en:",
+    "options": [
+      "El carácter constitucional o jurisdiccional que corresponde respectivamente a cada medio",
+      "El ámbito normativo y competencial dentro del cual se encuentran regulados",
+      "La existencia de un efecto suspensivo automático diferente en cada uno de ellos",
+      "El carácter extraordinario y subsidiario que necesariamente corresponde a ambos"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 49,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "Para determinar cuál recurso administrativo resulta aplicable a un acto concreto debe identificarse principalmente:",
+    "options": [
+      "La autoridad emisora, el ámbito competencial y el ordenamiento jurídico aplicable",
+      "La naturaleza del agravio, el tribunal competente y el sentido de sentencia solicitado",
+      "La cuantía del asunto, el domicilio del promovente y la jurisprudencia disponible",
+      "La autoridad ejecutora, la medida cautelar y la modalidad del juicio jurisdiccional"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 50,
+    "block": "IV. Recurso de revocación en Veracruz",
+    "q": "Comparar el recurso federal de revisión con el recurso local de revocación permite identificar:",
+    "options": [
+      "Diferencias de regulación, procedencia y tramitación dentro de sus respectivos ámbitos",
+      "Diferencias entre control constitucional concentrado y control convencional difuso",
+      "Diferencias entre procedimientos jurisdiccionales de nulidad y procedimientos de amparo",
+      "Diferencias entre competencia jurisdiccional material y competencia territorial administrativa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 51,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "La justicia administrativa puede definirse principalmente como:",
+    "options": [
+      "El sistema de procedimientos mediante los cuales la Administración forma sus decisiones",
+      "El sistema de instituciones y mecanismos para resolver controversias derivadas de la actuación administrativa",
+      "El sistema destinado a determinar exclusivamente responsabilidades de servidores públicos",
+      "El sistema mediante el cual la Administración ejecuta coactivamente sus determinaciones"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 52,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "El derecho procesal administrativo estudia principalmente:",
+    "options": [
+      "Los procedimientos internos mediante los cuales la Administración forma sus decisiones",
+      "Los elementos sustantivos mediante los cuales se determina la validez de los actos",
+      "Los procedimientos legislativos mediante los cuales se regulan las autoridades administrativas",
+      "Los procesos y medios mediante los cuales se resuelven controversias administrativas"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 53,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "El estudio del origen y evolución de la justicia administrativa permite comprender:",
+    "options": [
+      "La formación histórica de las facultades reglamentarias de la Administración Pública",
+      "La formación histórica de los mecanismos de control de la actuación administrativa",
+      "La evolución histórica de los procedimientos disciplinarios de los servidores públicos",
+      "La evolución histórica del procedimiento legislativo relativo a normas administrativas"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 54,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "El fundamento constitucional de la justicia administrativa permite identificar:",
+    "options": [
+      "Las normas reglamentarias relativas exclusivamente a la organización administrativa interna",
+      "Las reglas procesales secundarias referentes exclusivamente a la admisión de pruebas",
+      "Las bases superiores que sustentan la existencia y competencia de sus órganos",
+      "Las disposiciones secundarias relativas a la tramitación de los recursos administrativos"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 55,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "La relación entre justicia administrativa y principio de legalidad consiste en que:",
+    "options": [
+      "La primera permite sustituir discrecionalmente las decisiones administrativas legítimas",
+      "La primera permite controlar que la Administración actúe conforme al orden jurídico",
+      "La primera transforma todo acto administrativo en una resolución jurisdiccional",
+      "La primera permite inaplicar actos válidos exclusivamente por razones de oportunidad"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 56,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "Los principios del contencioso administrativo cumplen principalmente una función de:",
+    "options": [
+      "Determinación sustantiva de las atribuciones de las autoridades administrativas",
+      "Configuración orgánica de las dependencias integrantes de la Administración Pública",
+      "Determinación reglamentaria de la forma de emisión de los actos administrativos",
+      "Orientación jurídica de la interpretación y desarrollo del proceso administrativo"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 57,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "El derecho procesal administrativo se diferencia del procedimiento administrativo porque el primero se ocupa principalmente de:",
+    "options": [
+      "La formación ordinaria de actos administrativos dentro de las dependencias públicas",
+      "La ejecución material de decisiones administrativas por órganos de la Administración",
+      "La solución jurídica de controversias sometidas a órganos con función jurisdiccional",
+      "La elaboración de disposiciones generales por las autoridades administrativas"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 58,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "La justicia administrativa constituye principalmente un mecanismo de control sobre:",
+    "options": [
+      "La oportunidad política o administrativa de cualquier decisión adoptada por la autoridad",
+      "La juridicidad de determinadas actuaciones emitidas por autoridades administrativas",
+      "La organización interna de las dependencias encargadas de ejecutar políticas públicas",
+      "La ejecución material ordinaria de las actividades desarrolladas por la Administración"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 59,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "¿Qué mecanismos permiten examinar una actuación administrativa desde los parámetros constitucional y convencional de protección de derechos humanos?",
+    "options": [
+      "Control abstracto de constitucionalidad y control legislativo de legalidad",
+      "Control jerárquico administrativo y control administrativo de oportunidad",
+      "Control parlamentario y control presupuestario de la Administración",
+      "Control difuso de constitucionalidad y control de convencionalidad"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 60,
+    "block": "V. Justicia administrativa y derecho procesal administrativo",
+    "q": "La protección jurisdiccional frente a actuaciones administrativas ilegales busca principalmente:",
+    "options": [
+      "Sustituir las decisiones discrecionales legítimamente adoptadas por la autoridad administrativa",
+      "Reemplazar las atribuciones administrativas mediante decisiones jurisdiccionales ordinarias",
+      "Modificar la estructura orgánica de la autoridad responsable de emitir el acto administrativo",
+      "Restablecer la juridicidad frente a una actuación contraria al orden normativo aplicable"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 61,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "El análisis de constitucionalidad de un acto administrativo consiste en:",
+    "options": [
+      "Confrontar el acto exclusivamente con las disposiciones reglamentarias que lo desarrollan",
+      "Confrontar el acto con las disposiciones y principios constitucionales aplicables",
+      "Confrontar el acto únicamente con criterios internos emitidos por la propia autoridad",
+      "Confrontar el acto exclusivamente con las formalidades de la legislación secundaria"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 62,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "El control difuso de constitucionalidad se refiere principalmente a:",
+    "options": [
+      "Examinar la compatibilidad del acto exclusivamente con las disposiciones reglamentarias",
+      "Examinar la compatibilidad del acto exclusivamente con la legislación secundaria administrativa",
+      "Examinar la compatibilidad de la norma aplicable al caso con el parámetro constitucional",
+      "Examinar la compatibilidad del acto exclusivamente con criterios internos administrativos"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 63,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "El control de convencionalidad consiste principalmente en:",
+    "options": [
+      "Examinar la compatibilidad de la actuación jurídica únicamente con normas constitucionales nacionales",
+      "Examinar la compatibilidad de la actuación jurídica únicamente con disposiciones legales administrativas",
+      "Examinar la compatibilidad de la actuación con obligaciones convencionales en derechos humanos",
+      "Examinar la compatibilidad de la actuación únicamente con disposiciones reglamentarias internas"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 64,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "La protección de derechos humanos en materia administrativa exige que:",
+    "options": [
+      "Las autoridades ejerzan sus atribuciones respetando los límites constitucionales y convencionales",
+      "Los tribunales administrativos sustituyan cualquier decisión discrecional de la Administración",
+      "Las autoridades suspendan todos sus actos cuando exista inconformidad de un particular",
+      "Los órganos administrativos inapliquen libremente cualquier disposición que consideren inconveniente"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 65,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "Legalidad y constitucionalidad se diferencian porque:",
+    "options": [
+      "La primera examina competencia territorial y la segunda exclusivamente competencia material",
+      "La primera corresponde a la Administración y la segunda únicamente a órganos constitucionales",
+      "La primera produce nulidad relativa y la segunda necesariamente nulidad absoluta",
+      "La primera examina conformidad con la ley y la segunda con el parámetro constitucional"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 66,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "El parámetro que incorpora de manera particular las obligaciones internacionales en derechos humanos es:",
+    "options": [
+      "El control de legalidad administrativa",
+      "El control de convencionalidad",
+      "El control de competencia administrativa",
+      "El control de ejecutoriedad administrativa"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 67,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "La supremacía constitucional implica que:",
+    "options": [
+      "Los reglamentos pueden desplazar disposiciones constitucionales en materias administrativas especializadas",
+      "Las resoluciones administrativas definitivas adquieren jerarquía constitucional cuando quedan firmes",
+      "Los actos administrativos deben ajustarse a las normas y principios constitucionales aplicables",
+      "Los actos discrecionales están exceptuados del control constitucional por perseguir interés público"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 68,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "Cuando se analiza si un acto administrativo vulnera derechos humanos reconocidos constitucionalmente, se realiza principalmente:",
+    "options": [
+      "Un examen relacionado con el parámetro constitucional de actuación de la autoridad",
+      "Un examen relacionado exclusivamente con la competencia territorial de la autoridad",
+      "Un examen vinculado únicamente con la presunción de validez del acto administrativo",
+      "Un examen limitado exclusivamente a los efectos suspensivos del medio de defensa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 69,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "¿Qué combinación identifica correctamente dos mecanismos de control relacionados con la regularidad constitucional y los derechos humanos?",
+    "options": [
+      "Control administrativo jerárquico y acción de lesividad",
+      "Revisión administrativa y control jurisdiccional de oportunidad",
+      "Control difuso de constitucionalidad y control de convencionalidad",
+      "Control presupuestario y responsabilidad patrimonial del Estado"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 70,
+    "block": "VI. Constitucionalidad, convencionalidad y derechos humanos",
+    "q": "El análisis conjunto de legalidad, constitucionalidad y convencionalidad permite:",
+    "options": [
+      "Examinar únicamente la competencia del órgano administrativo que emitió la resolución",
+      "Examinar exclusivamente las formalidades empleadas para notificar el acto administrativo",
+      "Examinar solamente los efectos materiales derivados de la ejecución del acto combatido",
+      "Examinar el acto desde diferentes parámetros del orden jurídico aplicable"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 71,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "¿Qué órgano jurisdiccional especializado conoce de las controversias administrativas federales que la ley atribuye a su competencia?",
+    "options": [
+      "Tribunal Colegiado de Circuito en materia administrativa",
+      "Tribunal Federal de Justicia Administrativa",
+      "Juzgado de Distrito en materia administrativa",
+      "Suprema Corte de Justicia de la Nación"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 72,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "El estudio de la naturaleza jurídica del TFJA tiene como finalidad determinar:",
+    "options": [
+      "La competencia material correspondiente a las controversias sometidas al Tribunal",
+      "La posición jurídica y función jurisdiccional que ocupa en la justicia administrativa federal",
+      "La competencia territorial correspondiente a cada uno de los órganos integrantes",
+      "La competencia por grado correspondiente a los distintos órganos que lo conforman"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 73,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "La competencia material del TFJA permite determinar:",
+    "options": [
+      "El ámbito geográfico dentro del cual cada órgano puede ejercer jurisdicción",
+      "El nivel funcional correspondiente a cada órgano dentro de la estructura jurisdiccional",
+      "La cuantía económica mínima necesaria para acceder a determinadas modalidades de juicio",
+      "Las materias y controversias que jurídicamente puede conocer el Tribunal"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 74,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "La competencia territorial se refiere principalmente a:",
+    "options": [
+      "El ámbito geográfico dentro del cual corresponde conocer de determinada controversia",
+      "La materia jurídica respecto de la cual puede resolver válidamente el órgano jurisdiccional",
+      "El nivel orgánico dentro del cual se distribuyen atribuciones entre distintos órganos",
+      "La especialización técnica que corresponde a cada Sala por razón de su materia"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 75,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "La competencia por grado permite distinguir:",
+    "options": [
+      "El nivel funcional que ocupa un órgano dentro de la estructura jurisdiccional",
+      "El ámbito geográfico correspondiente a cada órgano jurisdiccional administrativo",
+      "La materia específica respecto de la cual cada órgano puede emitir resoluciones",
+      "La cuantía necesaria para acceder a una determinada modalidad del juicio administrativo"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 76,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "Estudiar la estructura del TFJA consiste principalmente en analizar:",
+    "options": [
+      "La distribución material de asuntos respecto de los cuales puede conocer el Tribunal",
+      "La distribución territorial de asuntos respecto de los cuales puede conocer el Tribunal",
+      "La organización de los órganos mediante los cuales ejerce sus atribuciones jurisdiccionales",
+      "La distribución por grado de las atribuciones correspondientes a cada órgano integrante"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 77,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "El funcionamiento del TFJA se refiere principalmente a:",
+    "options": [
+      "La materia respecto de la cual cada órgano puede ejercer válidamente jurisdicción",
+      "El territorio respecto del cual cada órgano puede ejercer válidamente jurisdicción",
+      "El grado jurisdiccional correspondiente a cada uno de los órganos integrantes",
+      "La manera en que sus órganos ejercen las atribuciones que jurídicamente les corresponden"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 78,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "¿Qué facultad permite que determinados asuntos sean conocidos por un órgano del TFJA atendiendo a su relevancia y a los supuestos legalmente establecidos?",
+    "options": [
+      "Facultad de revisión administrativa",
+      "Facultad de reconsideración jurisdiccional",
+      "Facultad de avocación administrativa",
+      "Facultad de atracción"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 79,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "Determinar la competencia del órgano jurisdiccional significa establecer:",
+    "options": [
+      "Si jurídicamente se encuentra facultado para conocer de la controversia planteada",
+      "Si materialmente la autoridad demandada puede ejecutar la resolución administrativa",
+      "Si procesalmente el actor tiene interés suficiente para promover cualquier recurso",
+      "Si constitucionalmente la Administración puede modificar la sentencia posteriormente"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 80,
+    "block": "VII. Tribunal Federal de Justicia Administrativa",
+    "q": "¿Qué criterios permiten delimitar jurídicamente la competencia del Tribunal Federal de Justicia Administrativa?",
+    "options": [
+      "Objetivo, subjetivo y funcional",
+      "Material, territorial y por grado",
+      "Federal, estatal y municipal",
+      "Originario, delegado y concurrente"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 81,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "El contencioso administrativo federal constituye esencialmente:",
+    "options": [
+      "Un recurso administrativo mediante el cual la propia Administración revisa sus resoluciones",
+      "Un procedimiento administrativo mediante el cual se revisan de oficio actos federales",
+      "Un proceso jurisdiccional destinado a resolver determinadas controversias administrativas federales",
+      "Un mecanismo constitucional para revisar resoluciones definitivas de tribunales administrativos"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 82,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "La naturaleza jurisdiccional del contencioso administrativo significa que:",
+    "options": [
+      "La controversia es resuelta por la misma autoridad que emitió originalmente el acto",
+      "La controversia es resuelta por el superior jerárquico de la autoridad administrativa",
+      "La controversia es decidida por un órgano investido jurídicamente de función jurisdiccional",
+      "La controversia se resuelve mediante una revisión administrativa iniciada de oficio"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 83,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "¿Cómo se denomina la modalidad del juicio contencioso administrativo federal que se substancia mediante medios electrónicos a través del sistema habilitado para ello?",
+    "options": [
+      "Juicio contencioso electrónico",
+      "Juicio contencioso digital",
+      "Juicio contencioso abreviado",
+      "Juicio en línea"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 84,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "¿Cómo se denomina la modalidad del juicio contencioso administrativo caracterizada por una substanciación más abreviada cuando se actualizan los supuestos legales correspondientes?",
+    "options": [
+      "Juicio sumario",
+      "Juicio abreviado",
+      "Juicio especial",
+      "Juicio simplificado"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 85,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "¿Cómo se denomina la modalidad ordinaria del juicio contencioso administrativo que se desarrolla fuera del sistema de juicio en línea?",
+    "options": [
+      "Vía tradicional",
+      "Vía ordinaria electrónica",
+      "Vía administrativa previa",
+      "Vía jurisdiccional extraordinaria"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 86,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "En términos conceptuales, un procedimiento de estricto derecho supone una actuación especialmente vinculada a:",
+    "options": [
+      "La posibilidad de que el juzgador sustituya ampliamente los argumentos de las partes",
+      "Los planteamientos formulados y las reglas procesales aplicables a la controversia",
+      "La facultad del tribunal de modificar libremente la causa de pedir del promovente",
+      "La incorporación oficiosa de pretensiones no planteadas inicialmente por las partes"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 87,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "La plena jurisdicción se relaciona con:",
+    "options": [
+      "La amplitud de facultades del órgano jurisdiccional respecto de la controversia y sus efectos",
+      "La imposibilidad del órgano jurisdiccional de modificar los efectos del acto impugnado",
+      "La facultad exclusiva de la autoridad administrativa para ejecutar cualquier sentencia",
+      "La obligación del tribunal de limitarse a declarar formalmente la invalidez del acto"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 88,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "La procedencia del juicio contencioso administrativo determina:",
+    "options": [
+      "Si la sentencia necesariamente deberá producir nulidad absoluta del acto administrativo",
+      "Si jurídicamente puede promoverse el proceso respecto del acto o resolución combatida",
+      "Si debe suspenderse automáticamente la ejecución del acto administrativo cuestionado",
+      "Si la pretensión formulada por el demandante necesariamente resultará jurídicamente fundada"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 89,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "La improcedencia del juicio contencioso administrativo supone:",
+    "options": [
+      "La existencia de una causa jurídica que determina necesariamente la nulidad del acto",
+      "La existencia de un vicio procesal que obliga al tribunal a reponer el procedimiento",
+      "La existencia de una medida provisional que suspende temporalmente el proceso",
+      "La existencia de una causa jurídica que impide examinar el fondo de la controversia"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 90,
+    "block": "VIII. Juicio contencioso administrativo federal",
+    "q": "El sobreseimiento del juicio contencioso administrativo implica:",
+    "options": [
+      "La conclusión del proceso sin resolver el fondo cuando se actualiza el supuesto correspondiente",
+      "La conclusión del proceso mediante sentencia que necesariamente declara la nulidad",
+      "La suspensión temporal del proceso mientras se resuelve una cuestión incidental",
+      "La remisión del asunto a la autoridad administrativa para que emita nueva resolución"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 91,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "¿Qué caracteriza a una parte dentro del juicio contencioso administrativo?",
+    "options": [
+      "Ser un sujeto auxiliar que interviene técnicamente en determinadas actuaciones procesales",
+      "Ser un sujeto que proporciona elementos probatorios sin formular una pretensión propia",
+      "Ser el órgano jurisdiccional encargado de dirigir el procedimiento administrativo",
+      "Ser un sujeto que ocupa una posición procesal jurídicamente reconocida en la controversia"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 92,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "La demanda constituye procesalmente:",
+    "options": [
+      "El acto mediante el cual la autoridad responde formalmente los agravios del particular",
+      "El acto mediante el cual se formula una pretensión ante el órgano jurisdiccional competente",
+      "El acto mediante el cual el tribunal fija definitivamente los puntos de la controversia",
+      "El acto mediante el cual se ofrecen exclusivamente los elementos probatorios del actor"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 93,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "La contestación de demanda permite principalmente:",
+    "options": [
+      "A la parte actora modificar libremente todas las pretensiones contenidas en su demanda",
+      "A la parte demandada responder frente a las pretensiones formuladas por la parte actora",
+      "Al órgano jurisdiccional pronunciarse anticipadamente sobre el fondo de la controversia",
+      "A la autoridad ejecutar el acto impugnado mientras continúa el procedimiento jurisdiccional"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 94,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "La ampliación de demanda constituye:",
+    "options": [
+      "La posibilidad de modificar la sentencia cuando aparezcan nuevos medios probatorios",
+      "La posibilidad de ampliar la competencia del tribunal mediante acuerdo de las partes",
+      "La posibilidad de incorporar cualquier pretensión después del cierre de instrucción",
+      "La posibilidad de complementar la demanda en los supuestos jurídicamente permitidos"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 95,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "Las medidas cautelares tienen como finalidad principal:",
+    "options": [
+      "Resolver definitivamente la pretensión principal antes del cierre de la instrucción",
+      "Sustituir los efectos de la sentencia definitiva cuando exista urgencia procesal",
+      "Preservar provisionalmente la materia o los derechos mientras se resuelve el juicio",
+      "Declarar provisionalmente la nulidad del acto administrativo durante todo el proceso"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 96,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "Un incidente dentro del juicio contencioso administrativo es:",
+    "options": [
+      "Una pretensión principal que constituye directamente el objeto central del proceso",
+      "Un medio autónomo promovido exclusivamente contra la sentencia definitiva dictada",
+      "Una medida cautelar destinada exclusivamente a conservar provisionalmente la materia",
+      "Una cuestión accesoria vinculada al proceso principal que requiere decisión específica"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 97,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "Las pruebas tienen como finalidad procesal:",
+    "options": [
+      "Proporcionar argumentos para sustituir los agravios formulados originalmente por el actor",
+      "Proporcionar elementos para acreditar los hechos jurídicamente relevantes de la controversia",
+      "Proporcionar fundamentos para ampliar la competencia del órgano jurisdiccional competente",
+      "Proporcionar elementos para modificar unilateralmente las pretensiones procesales iniciales"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 98,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "Los alegatos constituyen:",
+    "options": [
+      "Las manifestaciones iniciales mediante las cuales se determina la competencia del tribunal",
+      "Las promociones mediante las cuales se ofrecen únicamente pruebas supervenientes",
+      "Las consideraciones finales respecto de hechos, pruebas y cuestiones jurídicas debatidas",
+      "Las actuaciones mediante las cuales se solicita la ejecución material de la sentencia"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 99,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "El cierre de instrucción significa:",
+    "options": [
+      "Que concluye la etapa destinada a integrar el material necesario para resolver la controversia",
+      "Que concluye definitivamente el proceso mediante una decisión respecto del fondo",
+      "Que termina la posibilidad jurídica de ejecutar posteriormente la sentencia emitida",
+      "Que desaparecen necesariamente todas las medidas cautelares decretadas en el proceso"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 100,
+    "block": "IX. Partes, demanda, contestación, pruebas e incidentes",
+    "q": "¿Cuál representa correctamente la secuencia procesal general del juicio contencioso administrativo?",
+    "options": [
+      "Contestación → demanda → pruebas → cierre de instrucción → alegatos → sentencia",
+      "Demanda → pruebas → sentencia → contestación → alegatos → cierre de instrucción",
+      "Demanda → contestación → pruebas → alegatos → cierre de instrucción → sentencia",
+      "Demanda → contestación → sentencia → pruebas → alegatos → cierre de instrucción"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 101,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "La negativa ficta consiste esencialmente en:",
+    "options": [
+      "La negativa expresa mediante la cual la autoridad rechaza formalmente una petición",
+      "La consecuencia jurídica que el ordenamiento atribuye al silencio administrativo",
+      "La omisión de la autoridad de contestar una demanda contencioso-administrativa",
+      "La omisión jurisdiccional de dictar sentencia dentro del plazo correspondiente"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 102,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "¿Qué figura genera particularidades procesales cuando el particular impugna la consecuencia jurídica derivada del silencio de la autoridad administrativa?",
+    "options": [
+      "Resolución administrativa provisional",
+      "Confirmativa ficta",
+      "Negativa ficta",
+      "Resolución administrativa consentida"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 103,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "La sentencia dentro del juicio contencioso administrativo constituye:",
+    "options": [
+      "La resolución jurisdiccional que decide la controversia sometida al conocimiento del tribunal",
+      "La resolución administrativa que decide un recurso interpuesto ante la autoridad competente",
+      "La actuación procesal que determina exclusivamente la admisibilidad inicial de la demanda",
+      "La actuación jurisdiccional que únicamente declara cerrado el periodo de instrucción"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 104,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "La aclaración de sentencia tiene como finalidad:",
+    "options": [
+      "Revocar el sentido de la resolución mediante una nueva valoración de la controversia",
+      "Precisar aspectos de la resolución sin sustituir ni modificar sustancialmente su sentido",
+      "Incorporar pretensiones nuevas que no fueron analizadas durante el procedimiento",
+      "Reabrir la instrucción para admitir nuevos medios probatorios sobrevenidos"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 105,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "La ejecución de sentencia se refiere principalmente a:",
+    "options": [
+      "La revisión de los fundamentos jurídicos empleados por el tribunal al resolver",
+      "La materialización y cumplimiento de lo ordenado en la resolución jurisdiccional",
+      "La suspensión de los efectos de la resolución mientras se promueve otro medio",
+      "La aclaración de las consideraciones jurídicas que sustentan el sentido del fallo"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 106,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "La excitativa de justicia se relaciona principalmente con:",
+    "options": [
+      "La necesidad de promover que una sentencia firme sea materialmente ejecutada",
+      "La necesidad de promover que una resolución definitiva sea aclarada posteriormente",
+      "La necesidad de promover que la resolución jurisdiccional sea emitida oportunamente",
+      "La necesidad de promover que la sentencia sea impugnada por el recurso correspondiente"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 107,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "Los recursos jurisdiccionales se distinguen de los administrativos porque:",
+    "options": [
+      "Los primeros operan en el ámbito jurisdiccional contra determinadas decisiones procesales",
+      "Los primeros se presentan necesariamente ante la misma autoridad que emitió el acto",
+      "Los primeros constituyen procedimientos internos de revisión de la Administración",
+      "Los primeros solamente pueden promoverse antes de iniciar cualquier proceso contencioso"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 108,
+    "block": "X. Negativa ficta, sentencia y ejecución",
+    "q": "Las opciones de contenido de una sentencia se refieren a:",
+    "options": [
+      "Las distintas formas mediante las cuales puede presentarse inicialmente la demanda",
+      "Los distintos recursos administrativos que pueden promoverse antes del juicio",
+      "Los diferentes sentidos y efectos jurídicos que puede adoptar la resolución jurisdiccional",
+      "Las diferentes medidas cautelares que deben decretarse al admitir una demanda"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 109,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "¿Qué ámbito jurisdiccional tiene por objeto resolver las controversias derivadas de la actuación de las autoridades administrativas del Estado de Veracruz?",
+    "options": [
+      "Justicia constitucional local",
+      "Justicia fiscal federal",
+      "Justicia administrativa estatal",
+      "Justicia administrativa federal"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 110,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "El estudio de los fundamentos constitucionales de la justicia administrativa veracruzana busca determinar:",
+    "options": [
+      "Las bases legales que regulan la substanciación ordinaria del juicio contencioso local",
+      "Las bases reglamentarias de la estructura interna de los órganos administrativos estatales",
+      "Las bases procedimentales que regulan los recursos administrativos locales ordinarios",
+      "Las bases constitucionales que sustentan la existencia y atribuciones de la jurisdicción administrativa local"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 111,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "¿Qué elemento jurídico permite determinar si un órgano de justicia administrativa se encuentra facultado para conocer válidamente de una controversia concreta?",
+    "options": [
+      "La substanciación del procedimiento",
+      "La legitimación de las partes",
+      "La ejecutoriedad de la resolución",
+      "La competencia del órgano jurisdiccional"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 112,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "¿Mediante qué criterios puede delimitarse la competencia de un órgano de justicia administrativa local?",
+    "options": [
+      "Material, territorial y por grado",
+      "Objetivo, subjetivo y funcional",
+      "Federal, estatal y concurrente",
+      "Originario, delegado y auxiliar"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 113,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "¿Qué institución procesal permite impedir provisionalmente la ejecución o los efectos de un acto administrativo mientras se resuelve la controversia?",
+    "options": [
+      "Suspensión",
+      "Revocación",
+      "Sobreseimiento",
+      "Atracción"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 114,
+    "block": "XI. Justicia administrativa en Veracruz",
+    "q": "¿Qué mecanismo permite a las partes alcanzar una solución consensuada dentro del contencioso administrativo local cuando jurídicamente resulte procedente?",
+    "options": [
+      "Acuerdo reparatorio",
+      "Convenio arbitral",
+      "Convenio conciliatorio",
+      "Acuerdo conclusivo"
+    ],
+    "answer": 2
+  },
+  {
+    "id": 115,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "El juicio de lesividad se caracteriza porque:",
+    "options": [
+      "El particular controvierte administrativamente una resolución favorable a la Administración",
+      "La Administración controvierte jurisdiccionalmente una resolución favorable al particular",
+      "La Administración revisa de oficio una sentencia emitida por un tribunal administrativo",
+      "El particular controvierte constitucionalmente una resolución administrativa desfavorable"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 116,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "En el juicio de lesividad, ¿qué característica debe presentar la resolución administrativa que la propia Administración pretende controvertir jurisdiccionalmente?",
+    "options": [
+      "Ser favorable a un particular y reunir los presupuestos jurídicos para su impugnación",
+      "Ser desfavorable a un particular y haber adquirido firmeza jurisdiccional",
+      "Ser una sentencia ejecutoriada emitida por un tribunal administrativo",
+      "Ser una medida cautelar favorable a la propia autoridad administrativa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": 117,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "¿Cuál de las siguientes secuencias corresponde a actuaciones procesales propias del juicio de lesividad?",
+    "options": [
+      "Recurso → agravios → informe → audiencia → resolución",
+      "Demanda → suspensión → amparo → revisión → ejecutoria",
+      "Revisión → atracción → reclamación → ejecución → cumplimiento",
+      "Demanda → contestación → pruebas → sentencia"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 118,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "El juicio de amparo en materia administrativa constituye:",
+    "options": [
+      "Un recurso administrativo ordinario para revisar actos de autoridades administrativas",
+      "Un medio jurisdiccional de control constitucional frente a determinados actos de autoridad",
+      "Un juicio contencioso destinado exclusivamente al control de resoluciones fiscales",
+      "Un procedimiento administrativo extraordinario destinado al control de legalidad"
+    ],
+    "answer": 1
+  },
+  {
+    "id": 119,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "¿Cuáles son las dos modalidades fundamentales del juicio de amparo que pueden presentarse en materia administrativa según la naturaleza del acto reclamado y la resolución combatida?",
+    "options": [
+      "Amparo principal y amparo incidental",
+      "Amparo ordinario y amparo extraordinario",
+      "Amparo administrativo y amparo constitucional",
+      "Amparo directo y amparo indirecto"
+    ],
+    "answer": 3
+  },
+  {
+    "id": 120,
+    "block": "XII. Juicio de lesividad y amparo administrativo",
+    "q": "Considerados dentro del sistema de defensa, recurso administrativo, juicio contencioso y amparo representan:",
+    "options": [
+      "Etapas sucesivas y obligatorias de un único procedimiento administrativo de impugnación",
+      "Modalidades distintas del juicio contencioso que se eligen conforme al acto controvertido",
+      "Recursos administrativos diferentes resueltos por autoridades de distinta jerarquía",
+      "Medios jurídicos distintos de control en ámbitos administrativos, jurisdiccionales y constitucionales"
+    ],
+    "answer": 3
+  }
+];
+
+  </script>
+  <script>
+(() => {
+  const BANK = window.QUESTION_BANK || [];
+  const letters = ["A","B","C","D"];
+  const $ = s => document.querySelector(s);
+  const storageKey = "dpa_exam_stats_v1";
+  const mistakesKey = "dpa_exam_mistakes_v1";
+
+  // Safe storage: uses localStorage when available and falls back to memory
+  // in restricted preview contexts (e.g. embedded/data URLs).
+  const memoryStore = {};
+  const store = {
+    getItem(key) {
+      try { return window.localStorage.getItem(key); }
+      catch { return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null; }
+    },
+    setItem(key, value) {
+      try { window.localStorage.setItem(key, value); }
+      catch { memoryStore[key] = String(value); }
+    },
+    removeItem(key) {
+      try { window.localStorage.removeItem(key); }
+      catch { delete memoryStore[key]; }
+    }
+  };
+
+  const els = {
+    setup: $("#setupView"), quiz: $("#quizView"), result: $("#resultView"), mode: $("#mode"), count: $("#questionCount"),
+    blocks: $("#blockList"), shuffleOptions: $("#shuffleOptions"), start: $("#startBtn"), setupMsg: $("#setupMsg"),
+    best: $("#bestScore"), attempts: $("#attemptCount"), selectAll: $("#selectAll"), clearAll: $("#clearAll"), resetStats: $("#resetStatsBtn"),
+    themeBtn: $("#themeBtn"), modeBadge: $("#modeBadge"), blockBadge: $("#blockBadge"), progressText: $("#progressText"), timer: $("#timer"),
+    progressFill: $("#progressFill"), qnum: $("#questionNumber"), qtext: $("#questionText"), options: $("#options"), feedback: $("#feedback"),
+    prev: $("#prevBtn"), next: $("#nextBtn"), flag: $("#flagBtn"), resultTitle: $("#resultTitle"), resultSub: $("#resultSub"), scorePct: $("#scorePct"),
+    scoreRaw: $("#scoreRaw"), correctCount: $("#correctCount"), wrongCount: $("#wrongCount"), blankCount: $("#blankCount"), timeSpent: $("#timeSpent"),
+    blockResults: $("#blockResults"), retryWrong: $("#retryWrongBtn"), newSession: $("#newSessionBtn"), reviewBtn: $("#reviewBtn"), reviewArea: $("#reviewArea")
+  };
+
+  let state = null;
+  let timerId = null;
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60).toString().padStart(2, "0");
+    const s = (sec % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+  }
+
+  function getStats() {
+    try { return JSON.parse(store.getItem(storageKey)) || {attempts:0,best:0}; }
+    catch { return {attempts:0,best:0}; }
+  }
+
+  function updateStatsUI() {
+    const st = getStats();
+    els.best.textContent = st.attempts ? `${st.best}%` : "—";
+    els.attempts.textContent = `${st.attempts} ${st.attempts === 1 ? "intento guardado" : "intentos guardados"}`;
+  }
+
+  function uniqueBlocks() { return [...new Set(BANK.map(q => q.block))]; }
+
+  function renderBlocks() {
+    els.blocks.innerHTML = "";
+    uniqueBlocks().forEach(block => {
+      const label = document.createElement("label");
+      label.className = "block-option";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = block;
+      input.checked = true;
+      const span = document.createElement("span");
+      span.textContent = block;
+      label.append(input, span);
+      els.blocks.appendChild(label);
+    });
+  }
+
+  function selectedBlocks() {
+    return [...els.blocks.querySelectorAll('input[type="checkbox"]:checked')].map(x => x.value);
+  }
+
+  function makeQuestion(q, shuffleOpts) {
+    const optionObjs = q.options.map((text, idx) => ({text, correct: idx === q.answer, originalIndex: idx}));
+    return {id:q.id, block:q.block, q:q.q, options:shuffleOpts ? shuffle(optionObjs) : optionObjs, selected:null, flagged:false};
+  }
+
+  function startSession(customQuestions = null, forcedMode = null) {
+    els.setupMsg.textContent = "";
+    const requestedMode = forcedMode || els.mode.value;
+    let pool;
+
+    if (customQuestions) {
+      pool = customQuestions;
+    } else if (requestedMode === "mistakes") {
+      let ids = [];
+      try { ids = JSON.parse(store.getItem(mistakesKey)) || []; } catch {}
+      pool = BANK.filter(q => ids.includes(q.id));
+      if (!pool.length) { els.setupMsg.textContent = "No hay preguntas incorrectas guardadas todavía."; return; }
+    } else {
+      const blocks = selectedBlocks();
+      if (!blocks.length) { els.setupMsg.textContent = "Selecciona al menos un bloque."; return; }
+      pool = BANK.filter(q => blocks.includes(q.block));
+    }
+
+    const wanted = customQuestions ? pool.length : Math.min(parseInt(els.count.value, 10), pool.length);
+    const chosen = customQuestions ? [...pool] : shuffle(pool).slice(0, wanted);
+    state = {
+      mode: requestedMode === "mistakes" ? "study" : requestedMode,
+      questions: chosen.map(q => makeQuestion(q, els.shuffleOptions.checked)),
+      index:0, startedAt:Date.now(), elapsed:0, finished:false
+    };
+
+    els.setup.classList.add("hidden");
+    els.result.classList.add("hidden");
+    els.quiz.classList.remove("hidden");
+    els.modeBadge.textContent = state.mode === "study" ? "Estudio" : "Examen";
+    startTimer();
+    renderQuestion();
+  }
+
+  function startTimer() {
+    clearInterval(timerId);
+    els.timer.textContent = "00:00";
+    timerId = setInterval(() => {
+      if (!state || state.finished) return;
+      state.elapsed = Math.floor((Date.now() - state.startedAt) / 1000);
+      els.timer.textContent = formatTime(state.elapsed);
+    }, 1000);
+  }
+
+  function renderQuestion() {
+    const item = state.questions[state.index];
+    els.progressText.textContent = `${state.index + 1}/${state.questions.length}`;
+    els.progressFill.style.width = `${((state.index + 1) / state.questions.length) * 100}%`;
+    els.qnum.textContent = `Pregunta ${state.index + 1} · Banco #${item.id}`;
+    els.qtext.textContent = item.q;
+    els.blockBadge.textContent = item.block;
+    els.options.innerHTML = "";
+    els.feedback.className = "feedback hidden";
+    els.feedback.textContent = "";
+
+    item.options.forEach((opt, idx) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "option";
+      if (item.selected === idx) b.classList.add("selected");
+      if (state.mode === "study" && item.selected !== null) {
+        if (opt.correct) b.classList.add("correct");
+        if (item.selected === idx && !opt.correct) b.classList.add("wrong");
+      }
+      b.innerHTML = `<span class="letter">${letters[idx]}</span><span>${escapeHtml(opt.text)}</span>`;
+      b.addEventListener("click", () => selectOption(idx));
+      els.options.appendChild(b);
+    });
+
+    if (state.mode === "study" && item.selected !== null) showImmediateFeedback(item);
+    els.prev.disabled = state.index === 0;
+    els.next.textContent = state.index === state.questions.length - 1 ? "Finalizar" : "Siguiente";
+    els.flag.textContent = item.flagged ? "★ Marcada" : "☆ Marcar";
+  }
+
+  function selectOption(idx) {
+    const item = state.questions[state.index];
+    if (state.mode === "study" && item.selected !== null) return;
+    item.selected = idx;
+    renderQuestion();
+  }
+
+  function showImmediateFeedback(item) {
+    const chosen = item.options[item.selected];
+    const rightIndex = item.options.findIndex(o => o.correct);
+    els.feedback.classList.remove("hidden", "ok", "bad");
+    if (chosen.correct) {
+      els.feedback.classList.add("ok");
+      els.feedback.textContent = "Correcto.";
+    } else {
+      els.feedback.classList.add("bad");
+      els.feedback.textContent = `Incorrecto. La respuesta correcta es ${letters[rightIndex]}: ${item.options[rightIndex].text}`;
+    }
+  }
+
+  function nextQuestion() {
+    if (state.index === state.questions.length - 1) { finishSession(); return; }
+    state.index++;
+    renderQuestion();
+  }
+
+  function prevQuestion() { if (state.index > 0) { state.index--; renderQuestion(); } }
+
+  function finishSession() {
+    clearInterval(timerId);
+    state.finished = true;
+    state.elapsed = Math.floor((Date.now() - state.startedAt) / 1000);
+    const correct = state.questions.filter(q => q.selected !== null && q.options[q.selected].correct).length;
+    const blank = state.questions.filter(q => q.selected === null).length;
+    const wrong = state.questions.length - correct - blank;
+    const pct = Math.round((correct / state.questions.length) * 100);
+
+    const currentMistakes = state.questions.filter(q => q.selected === null || !q.options[q.selected].correct).map(q => q.id);
+    store.setItem(mistakesKey, JSON.stringify(currentMistakes));
+    const st = getStats();
+    st.attempts += 1;
+    st.best = Math.max(st.best, pct);
+    store.setItem(storageKey, JSON.stringify(st));
+    updateStatsUI();
+
+    els.quiz.classList.add("hidden");
+    els.result.classList.remove("hidden");
+    els.scorePct.textContent = `${pct}%`;
+    els.scoreRaw.textContent = `${correct}/${state.questions.length}`;
+    els.correctCount.textContent = correct;
+    els.wrongCount.textContent = wrong;
+    els.blankCount.textContent = blank;
+    els.timeSpent.textContent = formatTime(state.elapsed);
+    els.resultTitle.textContent = pct >= 80 ? "Buen dominio del bloque" : pct >= 60 ? "Base suficiente, pero conviene reforzar" : "Conviene repetir los temas débiles";
+    els.resultSub.textContent = `Sesión de ${state.questions.length} reactivos. Las preguntas incorrectas quedaron guardadas para repasarlas.`;
+    renderBlockResults();
+    els.retryWrong.disabled = currentMistakes.length === 0;
+    els.reviewArea.classList.add("hidden");
+    els.reviewBtn.textContent = "Revisar respuestas";
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function renderBlockResults() {
+    const groups = {};
+    for (const q of state.questions) {
+      if (!groups[q.block]) groups[q.block] = {total:0, correct:0};
+      groups[q.block].total++;
+      if (q.selected !== null && q.options[q.selected].correct) groups[q.block].correct++;
+    }
+    els.blockResults.innerHTML = Object.entries(groups).map(([block, x]) => {
+      const p = Math.round((x.correct / x.total) * 100);
+      return `<div class="block-row"><span>${escapeHtml(block)}</span><strong>${x.correct}/${x.total} · ${p}%</strong></div>`;
+    }).join("");
+  }
+
+  function renderReview() {
+    els.reviewArea.innerHTML = state.questions.map((q, i) => {
+      const rightIndex = q.options.findIndex(o => o.correct);
+      const chosen = q.selected === null ? null : q.options[q.selected];
+      const status = chosen?.correct ? `<span class="good">Correcta</span>` : `<span class="badtext">${q.selected === null ? "Sin responder" : "Incorrecta"}</span>`;
+      return `<article class="review-item"><h4>${i + 1}. ${escapeHtml(q.q)}</h4><p>${status}</p><p><strong>Tu respuesta:</strong> ${q.selected === null ? "—" : `${letters[q.selected]}. ${escapeHtml(chosen.text)}`}</p><p><strong>Correcta:</strong> ${letters[rightIndex]}. ${escapeHtml(q.options[rightIndex].text)}</p><p class="muted">${escapeHtml(q.block)} · Banco #${q.id}</p></article>`;
+    }).join("");
+  }
+
+  function retryWrong() {
+    const wrongIds = state.questions.filter(q => q.selected === null || !q.options[q.selected].correct).map(q => q.id);
+    startSession(BANK.filter(q => wrongIds.includes(q.id)), "study");
+  }
+
+  function resetToSetup() {
+    clearInterval(timerId);
+    state = null;
+    els.result.classList.add("hidden");
+    els.quiz.classList.add("hidden");
+    els.setup.classList.remove("hidden");
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  els.start.addEventListener("click", () => startSession());
+  els.prev.addEventListener("click", prevQuestion);
+  els.next.addEventListener("click", nextQuestion);
+  els.flag.addEventListener("click", () => { state.questions[state.index].flagged = !state.questions[state.index].flagged; renderQuestion(); });
+  els.selectAll.addEventListener("click", () => els.blocks.querySelectorAll("input").forEach(x => x.checked = true));
+  els.clearAll.addEventListener("click", () => els.blocks.querySelectorAll("input").forEach(x => x.checked = false));
+  els.newSession.addEventListener("click", resetToSetup);
+  els.retryWrong.addEventListener("click", retryWrong);
+  els.reviewBtn.addEventListener("click", () => {
+    const willShow = els.reviewArea.classList.contains("hidden");
+    if (willShow) renderReview();
+    els.reviewArea.classList.toggle("hidden");
+    els.reviewBtn.textContent = willShow ? "Ocultar revisión" : "Revisar respuestas";
+  });
+  els.resetStats.addEventListener("click", () => {
+    if (confirm("¿Borrar resultados e incorrectas guardadas en este dispositivo?")) {
+      store.removeItem(storageKey); store.removeItem(mistakesKey); updateStatsUI(); els.setupMsg.textContent = "Estadísticas eliminadas.";
+    }
+  });
+  els.themeBtn.addEventListener("click", () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    document.documentElement.dataset.theme = dark ? "light" : "dark";
+    store.setItem("dpa_theme", dark ? "light" : "dark");
+  });
+
+  document.addEventListener("keydown", e => {
+    if (!state || state.finished || els.quiz.classList.contains("hidden")) return;
+    if (["1","2","3","4"].includes(e.key)) selectOption(parseInt(e.key, 10) - 1);
+    if (e.key === "ArrowRight") nextQuestion();
+    if (e.key === "ArrowLeft") prevQuestion();
+    if (e.key.toLowerCase() === "f") { state.questions[state.index].flagged = !state.questions[state.index].flagged; renderQuestion(); }
+  });
+
+  const savedTheme = store.getItem("dpa_theme");
+  if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  renderBlocks();
+  updateStatsUI();
+})();
+
+  </script>
+</body>
+</html>
